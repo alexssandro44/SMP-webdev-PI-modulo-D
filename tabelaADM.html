@@ -10,36 +10,94 @@
 <html>
 <body>
     
+  <!-------------------------- container com as colunas ----------------------->
 
-  <div class="container text-center">
-    <div class="row align-items-start">
 
-      <div class="col">
-        Máquina
-      </div>
+  <!------------------------------- CABEÇALHO------------------------------->
+  <div class="container mt-4 tex">
 
-      <div class="col">
-        Patrimônio
-      </div>
-
-      <div class="col">
-        P.rede
-      </div>
-
-      <div class="col">
-        Imagem
-      </div>
-
-      <div class="col">
-        Ações
-      </div>
-
-    </div>
-  </div>
+  <table class="table table-bordered tex">
    
+  <!-- THEAD deixa a coluna agrupada como o cabeçalho -->
+  <thead class="cabeçalho text-center">
+    <tr>
+      <th scope="col">PC</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Patrimônio</th>
+      <th scope="col">Monitor</th>
+       <th scope="col">Modelo monitor</th>
+      <th scope="col">P.rede</th>
+      <th scope="col">Imagem</th>
+      <th scope="col ">Ações</th>
+
+    </tr>
+  </thead>
+  <!---------------------------------------------------------------------------->
+
+
+  <!------------------------------- CORPO DA TABELA ------------------------------->  
+
+  <!-- TBODy serve para agrupar todas as
+   linhas que ficam abaixo do cabeçalho  -->
+
+   
+
+  <tbody class="table-group-divider text-center">
+    <tr>                      <!-- tr cria uma linha -->
+      <th scope="row">1</th>  <!-- th cria as células de cabeçalho (títulos das colunas) -->
+      <td>Dell</td>           <!-- td cria os dados -->
+      <td>12345</td>
+      <td>@mdo</td>
+      <td>aaaa</td>
+      <td>bbbb</td>
+      <td>cccc</td>
+      <td>
+      <div class="Acoes d-flex text-center justify-content-center gap-2">
+        <button  class="btn btn-outline-primary" img >
+        <img src="ícone-editar.png" alt="">
+          Editar
+        </button>
+
+        <button class="btn btn-outline-primary">
+        <img src="ícone-deletar.png" alt="">
+          Deletar
+        </button>
+        
+      </div>
+    </td>
+    </tr>
+
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+     
+    </tr>
+
+    <tr>
+      <th scope="row">3</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>@social</td>
+    </tr>
+    
+  </tbody>
+  <!------------------------------------------------------------------------------>
+  
+
+</table>
+
+</div>
+
+
+
 
 
 
 </body>
 
 </html>
+  <!---------------------------------------------------------------------------->
+
+ 
