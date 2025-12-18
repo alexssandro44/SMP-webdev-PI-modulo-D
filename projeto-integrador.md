@@ -57,11 +57,11 @@ Desenvolver um sistema web que simule um sistema administrativo, incluindo naveg
 * **RNF03** – Código organizado.
 * **RNF04** – Baixo tempo de carregamento.
 
-## 7. Modelo Conceitual de Banco de Dados
+## 6. Modelo Conceitual de Banco de Dados
 
 O modelo conceitual do sistema é composto pelas entidades **matrícula** e **senha**, relacionadas para simular a organização e consulta de informações.
 
-## 8. Descrição do Caso de Uso
+## 7. Descrição do Caso de Uso
 
 ### UC01 – Visualizar Dados
 
