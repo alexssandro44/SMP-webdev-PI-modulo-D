@@ -5,3 +5,8 @@
 .col:hover{
     transform: scale(1.1);
 }
+
+.card-header-sobre-nos{
+   background-color: #5bb0ff;
+   color: white;
+}

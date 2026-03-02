@@ -18,7 +18,7 @@
 
 ## 1. Apresentação Geral do Projeto
 
-Este projeto consiste no desenvolvimento de um sistema web acadêmico, elaborado como parte do Projeto Integrador do Módulo D do Curso Técnico em Informática. O sistema simula um ambiente administrativo, permitindo a visualização e organização de informações por meio de páginas web estruturadas.
+Este projeto consiste no desenvolvimento de um sistema web acadêmico, elaborado como Projeto Integrador do Módulo D do Curso Técnico em Informática. O sistema simula um ambiente administrativo, permitindo a visualização e organização de informações por meio de páginas web estruturadas.
 
 ## 2. Objetivos
 
@@ -29,8 +29,8 @@ Desenvolver um sistema web que simule um sistema administrativo, incluindo naveg
 ### 2.2 Objetivos Específicos
 
 * Aplicar conceitos de desenvolvimento web.
-* Utilizar HTML5 para estruturação das páginas.
-* Utilizar CSS3 para estilização.
+* Utilizar HTML para estruturação das páginas.
+* Utilizar CSS para estilização.
 * Simular o uso de banco de dados para organização das informações.
 * Consolidar os conhecimentos adquiridos no módulo.
 
