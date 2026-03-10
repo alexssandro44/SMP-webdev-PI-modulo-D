@@ -6,7 +6,8 @@
 // 
  
 
-// LAYOUT PRINCIPAL 
+//--------- LAYOUT PRINCIPAL ---------------------------
+
 require "./template_layout_principal/cabecalho.php";
 require "./template_layout_principal/navegacao.php";
 require "./template_layout_principal/legenda.php";
@@ -14,6 +15,13 @@ require "./template_layout_principal/hero_titulo.php";
 require "./template_layout_principal/rodape.php";
 require "./template_layout_principal/tabela_patrimonio.php";
 
+//------------------------------------------------------------
+
+// LAYOUT TEMPLATE SOBRE NOS 
+
+require "./template_layout_sobre_nos/texto.php";
+
+//------------------------------
 
 
 require "./index_view.php";

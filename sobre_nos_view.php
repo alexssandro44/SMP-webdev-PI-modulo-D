@@ -19,21 +19,21 @@
 
         <div class="card-body">
             <p class="card-text">
-                O Sistema de Monitoramento Patrimonial surgiu como um Projeto Integrador,
-                com o objetivo de aplicar na prática os conhecimentos adquiridos ao longo
-                do curso técnico em informática.
+               
+            <?php echo $paragrafo1 ?>
+            
             </p>
 
             <p class="card-text">
-                Nosso projeto foi idealizado para atender à necessidade de monitoramento
-                eficiente de bens e ambientes, proporcionando maior organização,
-                rastreabilidade e segurança das informações.
+                
+            <?php echo $paragrafo2 ?>
+
             </p>
 
             <p class="card-text">
-                Durante o desenvolvimento, buscamos integrar conceitos de programação,
-                banco de dados, interface web e boas práticas de desenvolvimento,
-                transformando teoria em uma aplicação real e funcional.
+                
+            <?php echo $paragrafo3 ?>
+   
             </p> 
         </div>
 

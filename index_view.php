@@ -151,7 +151,7 @@
                 </div>
                  <p class="card-title text-center"><?php echo $data_rodape ?></p>
 
-                 <a href="sobre-nos.html">
+                 <a href="sobre_nos.php">
                   <button class="btn btn-outline-secondary">sobre nós</button>
                  </a>
                            
