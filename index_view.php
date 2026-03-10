@@ -53,14 +53,14 @@
         
       </div>
     
-    <!-------------------------------------------- patrimônios cadastrados   --------------------------------------------------------------------------> 
+    <!-------------------------------------------- PATRIMÔNIOS CADASTRADOS  --------------------------------------------------------------------------> 
 
         <!-- tr cria uma linha -->
         <!-- th cria as células de cabeçalho (títulos das colunas) -->
         <!-- td cria os dados -->
               
     <section class="container my-5">
-        <h3 class="mb-4 text-center">Patrimônios cadastrados</h3>
+        <h3 class="mb-4 text-center"> <?php echo $patrimonios ?></h3>
       
         <div class="table-responsive">
           <table class="table table-striped table-hover">
@@ -93,7 +93,7 @@
         </div>
       </section>
       
-    <!-------------------------------------------- mapa geral dos blocos -------------------------------------------------------------------------->
+    <!-------------------------------------------- MAPA GERAL DOS BLOCOS  -------------------------------------------------------------------------->
 
      
       <section class="container my-5">
@@ -149,7 +149,7 @@
                 <div class="footer text-center">
                     <img src="logo-sistema.png" alt=""  style="max-width: 70px;" class="img-fluid">
                 </div>
-                 <p class="card-title text-center">2025</p>
+                 <p class="card-title text-center"><?php echo $data_rodape ?></p>
 
                  <a href="sobre-nos.html">
                   <button class="btn btn-outline-secondary">sobre nós</button>

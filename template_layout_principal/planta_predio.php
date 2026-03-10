@@ -12,8 +12,6 @@
 <body>
 
 
-
-
 <div class="col-md-8">
     <div class="border rounded p-4 text-center bg-light" style="height: 300px;">
       <img src="" alt=""> <!-- ADICIONAR O MAPA -->

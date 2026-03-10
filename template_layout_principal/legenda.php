@@ -10,8 +10,6 @@ $legenda_vermelha = "irregular";
 
 //------------------------
 
-require "index_view.php";
-
 
 // http://localhost:8000/pagina_principal.php
 

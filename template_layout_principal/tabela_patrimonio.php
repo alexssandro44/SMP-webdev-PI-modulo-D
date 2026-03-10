@@ -1,0 +1,5 @@
+<?php
+
+$patrimonios = "Patrimônios cadastrados";
+
+?>
