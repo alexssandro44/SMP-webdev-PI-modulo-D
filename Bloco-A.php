@@ -48,7 +48,7 @@
     <!---------------------------------------------- menu de salas ------------------------------------------------->
     <div class="row row-cols-1 row-cols-md-3 g-4 ">
 
-        <a href="mapaADM.html"> 
+        <a href="mapaADM.php"> 
         <div class="col ">
           <div class="card text-center ">
             <img src="ícone-pc.png " class="card-img-top mx-auto d-block" alt="..." style="max-width: 150px;" class="img-fluid">
@@ -59,6 +59,8 @@
         </div>
       </a>
 
+
+        <!---- o restante das salas ainda nao possuem referencia!! ------>      
         <div class="col ">
           <div class="card text-center">
             <img src="ícone-pc.png " class="card-img-top mx-auto d-block" alt="..." style="max-width: 150px;" class="img-fluid">
@@ -167,7 +169,7 @@
   
     <footer>
       <div class="footer text-center mt-4">
-         <a href="index.html">
+         <a href="pagina_principal.php">
           <button class="btn btn-outline-primary">voltar</button>
          </a>         
       </div>

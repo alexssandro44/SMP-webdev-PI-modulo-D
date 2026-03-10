@@ -407,7 +407,7 @@
 
 <!----------------------------------- container do botão ----------------------------------------------------------->
 <div class="button text-center mt-4">
-  <a href="Bloco-A.html">
+  <a href="Bloco-A.php">
     <button class="btn btn-outline-primary">voltar</button>
   </a>
 

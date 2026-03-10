@@ -14,7 +14,7 @@
         <div class="row justify-content-center"> 
             <div class="col-12 text-center"> 
                 <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
-                    Mapa dos patrimônios
+                  <?php echo $titulo_principal ?>
                 </a>
             </div>
         </div> 
@@ -22,17 +22,19 @@
     <!---------------------------------------------------------------------------------------------------------------------->
     
     <!-- nav serve para agrupar os principais links -->
-    <!-------------------------------------------------  navegação  ------------------------------------------------->    
+    <!-------------------------------------------------  MENU DE NAVEGAÇÃO  ------------------------------------------------->    
+    
     <nav class="nav nav-underline justify-content-center "> 
-    <a class="nav-item nav-link link-body-emphasis mx-3 " href="Bloco-A.html">Bloco A</a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="#">Bloco B</a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="#">Bloco C</a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="#">Bloco D</a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3 " href="Bloco-A.php"> <?php echo $bloco_a ?></a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3" href="#"><?php echo $bloco_b?></a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3" href="#"><?php echo $bloco_c?></a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3" href="#"><?php echo $bloco_d?></a> 
      
     </nav>
     <!---------------------------------------------------------------------------------------------------------------------->
     
 
+    
     <!------------------------------- card com imagem da tela inicial ---------------------------------------------------------------------------->  
     <div class="card text-center ">
         <div class="card-header ">
@@ -43,7 +45,9 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">SMP</h5>
-          <p class="card-text">Visualize, gerencie e proteja seu patrimônio em um único mapa inteligente.</p>
+
+        <!--- legenda da primeira pagina  ----->
+        <p class="card-text"><?php echo $hero_titulo ?></p>
          
         </div>
         
@@ -108,25 +112,25 @@
             </div>
           </div>
       
-          <!-- Legenda -->
+          <!---------------------------- LEGENDA   ----------------------------->
           <div class="col-md-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Legenda</h5>
+                <h5 class="card-title"> <?php echo $legenda ?></h5>
       
                 <p>
                   <span class="badge bg-success"> </span> <!-- badge cria um bloco com cor -->
-                  Patrimônio regular
+                  <?php echo $legenda_verde ?>
                 </p>
       
                 <p>
                   <span class="badge bg-warning"> </span>
-                  Em manutenção
+                  <?php echo $legenda_amarela ?>
                 </p>
-      
+                
                 <p>
                   <span class="badge bg-danger"> </span>
-                  Irregular
+                  <?php  echo $legenda_vermelha ?>
                 </p>
       
               </div>
