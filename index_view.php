@@ -75,14 +75,14 @@
             </thead>
             <tbody>
               <tr>
-                <td>001</td>
+                <td>01</td>
                 <td>PC</td>
                 <td>Sala 1</td>
                 <td>Bloco A</td>
                 <td><span class="badge bg-success">Ativo</span></td>
               </tr>
               <tr>
-                <td>002</td>
+                <td>02</td>
                 <td>PC</td>
                 <td>Sala 3</td>
                  <td>bloco B</td>
@@ -101,14 +101,9 @@
       
         <div class="row">    
           <div class="col-md-8">
-            <div class="border rounded p-4 text-center bg-light" style="height: 300px;">
-              <img src="" alt=""> <!-- ADICIONAR O MAPA -->
-              <p class="text-muted mt-5">
-                 mapa
-                
-                 <br>
-                
-              </p>
+            <div class="text-center bg-light" style="height: 300px; width:600px;">
+            <img src="planta_baixa.jpg" alt="Mapa" style="width:100%; height:100%;"> <!-- ADICIONAR O MAPA -->
+
             </div>
           </div>
       
