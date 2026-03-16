@@ -101,7 +101,7 @@
       
         <div class="row">    
           <div class="col-md-8">
-            <div class="text-center bg-light" style="height: 300px; width:600px;">
+          <div class="text-center bg-light mx-auto" style="height:300px; max-width:600px;">
             <img src="planta_baixa.jpg" alt="Mapa" style="width:100%; height:100%;"> <!-- ADICIONAR O MAPA -->
 
             </div>

@@ -26,8 +26,9 @@
 <!-------------------------------------------- container do mapa ---------------------------------------------------------------------->
 <div class="container d-flex mt-5">
      
-   
-          <div class="row row-cols-1 row-cols-md-5 g-4 " >
+          <!---  alterei o comprimento da div.  style="min-width:550px;"  ---->
+          
+          <div class="row row-cols-1 row-cols-md-5 g-4" style="min-width:550px;">
 
             <div class="col" >
               <div class="card">
@@ -408,7 +409,7 @@
 <!----------------------------------- container do botão ----------------------------------------------------------->
 <div class="button text-center mt-4">
   <a href="Bloco-A.php">
-    <button class="btn btn-outline-primary">voltar</button>
+    <button class="btn btn-outline-primary mt-4">voltar</button>
   </a>
 
   </div>
