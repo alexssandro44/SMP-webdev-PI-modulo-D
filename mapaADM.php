@@ -1,10 +1,19 @@
+<?php
+$dsn = "sqlite:database.db";
+$pdo = new PDO($dsn);
+
+$sql = "SELECT * FROM pcs";
+$pcs = $pdo->query($sql)->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -19,402 +28,200 @@
         </div>
     </div> 
 </header>
-    
 <!------------------------------------------------------------------------------------------------------------------>
 
+<!-------------------------------------------- container principal ---------------------------------------------------------->
+<div class="container-fluid mt-5 px-5">
 
-<!-------------------------------------------- container do mapa ---------------------------------------------------------------------->
-<div class="container d-flex mt-5">
-     
-          <!---  alterei o comprimento da div.  style="min-width:550px;"  ---->
+
+  <div class="row">
+
+    <!------------------------------------ COLUNA DOS PCS ------------------------------------------------------------>
+    <div class="col-md-5">
+
+      <div class="row g-4">
+
+        <!--  LOOP PARA CRIAR OS PCS  ----->
+        <?php foreach($pcs as $pc): ?>
           
-          <div class="row row-cols-1 row-cols-md-5 g-4" style="min-width:550px;">
+          <div class="col-auto">
+            <div class="card" style="width:120px;">
+              <div class="card-body text-center">
+                <h5>PC <?= $pc['numero'] ?></h5>
+                <img src="ícone-pc-mapa..png" style="max-width: 70px;">
+              </div>
+            </div>
+          </div>
 
-            <div class="col" >
-              <div class="card">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 1</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-     
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 2</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
+        <?php endforeach; ?>
 
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 3</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
+      </div>
 
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 4</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
+    </div>
 
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 5</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
+    <!------------------------------------ COLUNA DA TABELA ---------------------------------------------------------->
+    <div class="col-md-6">
 
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 6</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 7</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 8</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 9</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 10</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 11</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 12</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 13</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 14</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 15</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 16</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 17</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 18</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 19</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 20</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 21</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 22</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card ">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-center">PC 23</h5>
-                  <img class="img-fluid" src="ícone-pc-mapa..png" alt="" style="max-width: 70px;">                  
-                </div>
-              </div>
-            </div>
-       
-             
-              
-        </div>
-
-        
-
-<!--------------------------------- container da coluna ------------------------------------->
-
-  <div class="container tabela">
+      <div class="container tabela">
          
-  <!------------------------------- CABEÇALHO--------------------------------------------------->
-  <div class="container mt-4 tex">
+      <!------------------------------- CABEÇALHO--------------------------------------------------->
+      <div class="container mt-4 tex">
 
-    <table class="table table-bordered tex">
+        <!-- BARRA DE ROLAGEM DA TABELA -->
+        <div class="scroll" style="max-height: 600px; overflow-y: auto;">    
+  
+        <table class="table table-bordered tex">
      
-    <!-- THEAD deixa a coluna agrupada como o cabeçalho -->
-    <thead class="cabeçalho text-center">
-      <tr>
-        <th scope="col">PC</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">Patrimônio</th>
-        <th scope="col">Monitor</th>
-         <th scope="col">Modelo monitor</th>
-        <th scope="col">P.rede</th>
-        <th scope="col">Imagem</th>
-        <th scope="col ">Ações</th>
-  
-      </tr>
-    </thead>
-    <!---------------------------------------------------------------------------->
-  
-  
-    <!------------------------------- CORPO DA TABELA ------------------------------->  
-  
-    <!-- TBODy serve para agrupar todas as
-     linhas que ficam abaixo do cabeçalho  -->
-    <tbody class="table-group-divider text-center">
-  
-     <!-----------------------------  primero bloco ----------------------------->
-  
-      <tr>                      <!-- tr cria uma linha -->
-        <th scope="row">1</th>  <!-- th cria as células de cabeçalho (títulos das colunas) -->
-        <td>Dell</td>           <!-- td cria os dados -->
-        <td>12345</td>
-        <td>Dell</td>
-        <td>24MS500-B</td>
-        <td>347387</td>
-        <td>ssd 500gb</td>
-        <td>
-        <div class="Acoes d-flex text-center justify-content-center gap-2">
-          <button  class="btn btn-outline-primary" img >
-          <img src="ícone-editar.png" alt="">
-            Editar
-          </button>
-  
-          <button class="btn btn-outline-primary">
-          <img src="ícone-deletar.png" alt="">
-            Deletar
-          </button>
+        <thead class="cabeçalho text-center">
+          <tr>
+            <th>PC</th>
+            <th>Modelo</th>
+            <th>Patrimônio</th>
+            <th>Monitor</th>
+            <th>Modelo monitor</th>
+            <th>P.rede</th>
+            <th>Imagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
 
-         
-          
-        </div>
-      </td>
-      </tr>
-      <!--------------------------------------------------------------------------->
-     
-      
-      <!-----------------------------  segundo bloco ------------------------------>
-  
-     <tr>                      <!-- tr cria uma linha -->
-        <th scope="row">2</th>  <!-- th cria as células de cabeçalho (títulos das colunas) -->
-        <td>Dell</td>           <!-- td cria os dados -->
-        <td>12345</td>
-        <td>Dell</td>
-        <td>24MS500-B</td>
-        <td>347387</td>
-        <td>ssd 500gb</td>
-        <td>
-        <div class="Acoes d-flex text-center justify-content-center gap-2">
-          <button  class="btn btn-outline-primary" img >
-          <img src="ícone-editar.png" alt="">
-            Editar
-          </button>
-  
-          <button class="btn btn-outline-primary">
-          <img src="ícone-deletar.png" alt="">
-            Deletar
-          </button>
-          
-        </div>
-      </td>
-      </tr>
-      <!--------------------------------------------------------------------------->
-  
-      <!-----------------------------  terceiro bloco ------------------------------>
-  
-     <tr>                      <!-- tr cria uma linha -->
-        <th scope="row">3</th>  <!-- th cria as células de cabeçalho (títulos das colunas) -->
-        <td>Dell</td>           <!-- td cria os dados -->
-        <td>12345</td>
-        <td>Dell</td>
-        <td>24MS500-B</td>
-        <td>347387</td>
-        <td>ssd 500gb</td>
-        <td>
-        <div class="Acoes d-flex text-center justify-content-center gap-2">
-          <button  class="btn btn-outline-primary" img >
-          <img src="ícone-editar.png" alt="">
-            Editar
-          </button>
-  
-          <button class="btn btn-outline-primary">
-          <img src="ícone-deletar.png" alt="">
-            Deletar
-          </button>
-          
-        </div>
-      </td>
-      </tr>
-      <!--------------------------------------------------------------------------->
-  
-      <!-----------------------------  quarto bloco ------------------------------->
-  
-     <tr>                      <!-- tr cria uma linha -->
-        <th scope="row">4</th>  <!-- th cria as células de cabeçalho (títulos das colunas) -->
-        <td>Dell</td>           <!-- td cria os dados -->
-        <td>12345</td>
-        <td>Dell</td>
-        <td>24MS500-B</td>
-        <td>347387</td>
-        <td>ssd 500gb</td>
-        <td>
-        <div class="Acoes d-flex text-center justify-content-center gap-2">
-          <button  class="btn btn-outline-primary" img >
-          <img src="ícone-editar.png" alt="">
-            Editar
-          </button>
-  
-          <button class="btn btn-outline-primary">
-          <img src="ícone-deletar.png" alt="">
-            Deletar
-          </button>
-          
-        </div>
-      </td>
-      </tr>
-      
+        <tbody class="table-group-divider text-center">
+
+        <?php foreach($pcs as $pc): ?>
+
+        <tr>
+
+          <!-- Número do PC -->
+          <th>PC <?= $pc['numero'] ?></th>
+
+          <!-- Dados -->
+          <td><?= $pc['modelo'] ?></td>
+          <td><?= $pc['patrimonio'] ?></td>
+          <td><?= $pc['monitor'] ?></td>
+          <td><?= $pc['modelo_monitor'] ?></td>
+          <td><?= $pc['ponto_rede'] ?></td>
+          <td><?= $pc['imagem'] ?></td>
+
+          <!-------------- AÇÕES  DA TABELA ------------------>
+          <td>
+            <div class="d-flex justify-content-center gap-2">
+
+              <!-- BOTÃO EDITAR -->
+              <button class="btn btn-outline-primary d-flex align-items-center gap-1">
+                <img src="ícone-editar.png" style="width:16px;">
+                Editar
+              </button>
+
+              <!-- BOTÃO DELETAR -->
+              <a href="CRUD-mapa-patrimonio/deletar_pc.php?id=<?= $pc['id'] ?>" 
+                 class="btn btn-outline-primary d-flex align-items-center gap-1"
+                 onclick="return confirm('Tem certeza que deseja deletar este PC?')">
+                 
+                <img src="ícone-deletar.png" style="width:16px;">
+                Deletar
+              </a>
+
+            </div>
+          </td>
+
+        </tr>
+
+        <?php endforeach; ?>
+
         </tbody>
-    
-      </table>
+        </table>
 
-       <div class="button">
+        </div>
+
+        <!---------------- BOTÕES ------------------>
+        <div class="button mt-3">
          
-        <button class="btn btn-success">Reserva</button>
-        <button class="btn btn-warning">Manutenção</button>
-        <button class="btn btn-danger">Irregular</button>
-          
-        <button class="btn btn-outline-primary">
-          <img src="ícone-adicionar.png" alt="">
+          <button class="btn btn-success">Reserva</button>
+          <button class="btn btn-warning">Manutenção</button>
+          <button class="btn btn-danger">Irregular</button>
+
+          <!---------------- BOTÃO MODAL ------------------>
+          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAdicionar">
+            <img src="ícone-adicionar.png">
             Adicionar
           </button>
 
         </div>
 
-      
       </div>
-  
+
+    </div>
+
   </div>
-     
-       
+
 </div>
 
+<!-------------------------------- MODAL ------------------------------------------------------->
+<div class="modal fade" id="modalAdicionar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-<!----------------------------------- container do botão ----------------------------------------------------------->
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar PC</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="CRUD-mapa-patrimonio/adicionar_pc.php" method="POST">
+
+          <div class="mb-2">
+            <label>Número do PC</label>
+            <input type="number" name="numero" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Modelo</label>
+            <input type="text" name="modelo" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Patrimônio</label>
+            <input type="text" name="patrimonio" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Monitor</label>
+            <input type="text" name="monitor" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Modelo Monitor</label>
+            <input type="text" name="modelo_monitor" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Ponto de Rede</label>
+            <input type="text" name="ponto_rede" class="form-control">
+          </div>
+
+          <div class="mb-2">
+            <label>Imagem</label>
+            <input type="text" name="imagem" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-success mt-2"
+          onclick="this.disabled=true; this.form.submit();">
+            Salvar
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!----------------------------------- botão voltar ----------------------------------------------------------->
 <div class="button text-center mt-4">
-  <a href="Bloco-A.php">
+  <a href="Bloco.php">
     <button class="btn btn-outline-primary mt-4">voltar</button>
   </a>
-
-  </div>
-<!------------------------------------------------------------------------------------------------------------------>
+</div>
 
 </body>
-
 </html>

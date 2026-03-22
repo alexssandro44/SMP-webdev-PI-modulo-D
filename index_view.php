@@ -75,14 +75,14 @@
             </thead>
             <tbody>
               <tr>
-                <td>01</td>
+                <td>1</td>
                 <td>PC</td>
                 <td>Sala 1</td>
                 <td>Bloco A</td>
                 <td><span class="badge bg-success">Ativo</span></td>
               </tr>
               <tr>
-                <td>02</td>
+                <td>2</td>
                 <td>PC</td>
                 <td>Sala 3</td>
                  <td>bloco B</td>
