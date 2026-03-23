@@ -1,3 +1,4 @@
+<!--- conexao com o banco  ---->
 <?php
 $dsn = "sqlite:database.db";
 $pdo = new PDO($dsn);
@@ -107,10 +108,11 @@ $pcs = $pdo->query($sql)->fetchAll();
             <div class="d-flex justify-content-center gap-2">
 
               <!-- BOTÃO EDITAR -->
-              <button class="btn btn-outline-primary d-flex align-items-center gap-1">
-                <img src="ícone-editar.png" style="width:16px;">
+                <a href="CRUD-mapa-patrimonio/form-editar.php?id=<?= $pc['id'] ?>" 
+                 class="btn btn-outline-primary d-flex align-items-center gap-1">
+                <img src="ícone-deletar.png" style="width:16px;">
                 Editar
-              </button>
+              </a>
 
               <!-- BOTÃO DELETAR -->
               <a href="CRUD-mapa-patrimonio/deletar_pc.php?id=<?= $pc['id'] ?>" 
@@ -219,7 +221,7 @@ $pcs = $pdo->query($sql)->fetchAll();
 <!----------------------------------- botão voltar ----------------------------------------------------------->
 <div class="button text-center mt-4">
   <a href="Bloco.php">
-    <button class="btn btn-outline-primary mt-4">voltar</button>
+    <button class="btn btn-outline-primary mt-4 text-center">voltar</button>
   </a>
 </div>
 
