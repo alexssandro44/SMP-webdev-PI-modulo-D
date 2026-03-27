@@ -27,8 +27,8 @@
     <nav class="nav nav-underline justify-content-center "> 
     <a class="nav-item nav-link link-body-emphasis mx-3 " href="Bloco.php"> <?php echo $bloco_a ?></a> 
     <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-B.php"><?php echo $bloco_b?></a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-c.php"><?php echo $bloco_c?></a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-d.php"><?php echo $bloco_d?></a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-C.php"><?php echo $bloco_c?></a> 
+    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-D.php"><?php echo $bloco_d?></a> 
      
     </nav>
     <!---------------------------------------------------------------------------------------------------------------------->

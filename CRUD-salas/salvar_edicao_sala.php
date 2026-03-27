@@ -1,29 +1,28 @@
 <?php
 
 $dsn = "sqlite:../database.db";
-
 $pdo = new PDO($dsn);
 
-
-// dados do formulário
+// Receber dados
+$id = $_POST['id'];
 $nome = $_POST['nome'];
 $bloco = $_POST['bloco'];
 
+// update
+$sql = "UPDATE salas SET
+    nome = :nome,
+    bloco = :bloco
+WHERE id = :id";
 
-$sql = "INSERT INTO salas
-(nome,bloco)
-VALUES (:nome, :bloco)";
-
+// preparar
 $stmt = $pdo->prepare($sql);
 
+// executar
 $stmt->execute([
-    ':nome'=> $nome,
+    ':nome' => $nome,
     ':bloco' => $bloco,
-    
+    ':id' => $id
 ]);
 
-// voltar pra página
+// voltar
 header("Location: ../Bloco.php");
-
-
-?>

@@ -3,8 +3,22 @@
 $dsn = "sqlite:database.db";
 $pdo = new PDO($dsn);
 
-$sql = "SELECT * FROM pcs";
-$pcs = $pdo->query($sql)->fetchAll();
+$sala_id = $_GET['sala_id'];
+
+$sql = "SELECT * FROM pcs WHERE sala_id = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$sala_id]);
+$pcs = $stmt->fetchAll();
+
+
+// mostrar o nome da sala
+$sql = "SELECT * FROM salas WHERE id = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$sala_id]);
+$sala = $stmt->fetch();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +38,7 @@ $pcs = $pdo->query($sql)->fetchAll();
     <div class="row justify-content-center"> 
         <div class="col-12 text-center mt-3"> 
             <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
-                Mapa dos patrimônios - sala 1
+                Mapa dos patrimônios - sala <?= $sala['nome'] ?>
             </a>
         </div>
     </div> 
@@ -108,21 +122,22 @@ $pcs = $pdo->query($sql)->fetchAll();
             <div class="d-flex justify-content-center gap-2">
 
               <!-- BOTÃO EDITAR -->
-                <a href="CRUD-mapa-patrimonio/form-editar.php?id=<?= $pc['id'] ?>" 
+               <a href="CRUD-mapa-patrimonio/form-editar.php?id=<?= $pc['id'] ?>&sala_id=<?= $sala_id ?>"
+
                  class="btn btn-outline-primary d-flex align-items-center gap-1">
-                <img src="ícone-deletar.png" style="width:16px;">
+                <img src="ícone-editar.png" style="width:16px">
                 Editar
               </a>
 
+
               <!-- BOTÃO DELETAR -->
-              <a href="CRUD-mapa-patrimonio/deletar_pc.php?id=<?= $pc['id'] ?>" 
+              <a href="CRUD-mapa-patrimonio/deletar_pc.php?id=<?= $pc['id'] ?>&sala_id=<?= $sala_id ?>"
                  class="btn btn-outline-primary d-flex align-items-center gap-1"
                  onclick="return confirm('Tem certeza que deseja deletar este PC?')">
-                 
-                <img src="ícone-deletar.png" style="width:16px;">
+                <img src="ícone-deletar.png" style="width:16px">
                 Deletar
               </a>
-
+               
             </div>
           </td>
 
@@ -171,6 +186,8 @@ $pcs = $pdo->query($sql)->fetchAll();
       <div class="modal-body">
         <form action="CRUD-mapa-patrimonio/adicionar_pc.php" method="POST">
 
+          <!--- envia o ID da sala junto com o formulário ----->
+           <input type="hidden" name="sala_id" value="<?= $sala_id ?>">
           <div class="mb-2">
             <label>Número do PC</label>
             <input type="number" name="numero" class="form-control">

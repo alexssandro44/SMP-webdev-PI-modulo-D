@@ -4,7 +4,9 @@ $dsn = "sqlite:../database.db";
 $pdo = new PDO($dsn);
 
 // Receber dados
-$id = $_POST['id'];
+$sala_id = $_POST['sala_id'];
+$id = $_POST['id']; 
+
 $numero = $_POST['numero'];
 $modelo = $_POST['modelo'];
 $patrimonio = $_POST['patrimonio'];
@@ -29,15 +31,17 @@ $stmt = $pdo->prepare($sql);
 
 // executar
 $stmt->execute([
-    ':id' => $id,
     ':numero' => $numero,
     ':modelo' => $modelo,
     ':patrimonio' => $patrimonio,
     ':monitor' => $monitor,
     ':modelo_monitor' => $modelo_monitor,
     ':ponto_rede' => $ponto_rede,
-    ':imagem' => $imagem
+    ':imagem' => $imagem,
+    ':id' => $id
 ]);
 
+
 // voltar
-header("Location: ../mapaADM.php");
+header("Location: ../mapaADM.php?sala_id=".$sala_id);
+

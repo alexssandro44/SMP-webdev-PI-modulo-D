@@ -31,7 +31,8 @@ $pc = $stmt->fetch();
 
 <form action="salvar-edicao.php" method="POST">
 
-  <input type="hidden" name="id" value="<?= $pc['id'] ?>">
+<input type="hidden" name="id" value="<?= $pc['id'] ?>">
+<input type="hidden" name="sala_id" value="<?= $_GET['sala_id'] ?>">
 
   <div class="mb-2">
     <label>Número</label>
@@ -69,7 +70,11 @@ $pc = $stmt->fetch();
   </div>
 
   <button type="submit" class="btn btn-success mt-2">Salvar</button>
-  <a href="../mapaADM.php" class="btn btn-secondary mt-2">Cancelar</a>
+
+  <a href="../mapaADM.php?sala_id=<?= $_GET['sala_id'] ?>" class="btn btn-secondary mt-2">
+  Cancelar
+  </a>
+ 
 
 </form>
 

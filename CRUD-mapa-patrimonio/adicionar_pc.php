@@ -14,7 +14,8 @@ $monitor = $_POST['monitor'];
 $modelo_monitor = $_POST['modelo_monitor'];
 $ponto_rede = $_POST['ponto_rede'];
 $imagem = $_POST['imagem'];
-$sala_id = 1;
+$sala_id = $_POST['sala_id'];
+
 
 
 $sql = "INSERT INTO pcs 
@@ -35,7 +36,8 @@ $stmt->execute([
 ]);
 
 // voltar pra página
-header("Location: ../mapaADM.php");
+header("Location: ../mapaADM.php?sala_id=".$sala_id);
+
 
 
 ?>
