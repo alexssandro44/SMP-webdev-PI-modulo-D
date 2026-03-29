@@ -1,3 +1,21 @@
+<!--- CONSULTA  ---->
+
+<?php
+$dsn = "sqlite:database.db";
+$pdo = new PDO($dsn);
+
+$sql = "
+SELECT pcs.*, salas.nome AS sala_nome, salas.bloco
+FROM pcs
+INNER JOIN salas ON pcs.sala_id = salas.id
+ORDER BY salas.nome
+";
+
+$stmt = $pdo->query($sql);
+$patrimonios_lista = $stmt->fetchAll();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +80,7 @@
     <section class="container my-5">
         <h3 class="mb-4 text-center"> <?php echo $patrimonios ?></h3>
       
-        <div class="table-responsive">
+        <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
           <table class="table table-striped table-hover">
             <thead class="table-light">
               <tr>
@@ -73,23 +91,33 @@
                 <th>Status</th>
               </tr>
             </thead>
+            
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>PC</td>
-                <td>Sala 1</td>
-                <td>Bloco A</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>PC</td>
-                <td>Sala 3</td>
-                 <td>bloco B</td>
-                <td><span class="badge bg-warning">Manutenção</span></td>
-              </tr>
-            </tbody>
-          </table>
+
+          <?php foreach($patrimonios_lista as $item): ?>
+          
+          <tr>
+            <td><?= $item['numero'] ?></td>
+            <td>PC</td>
+            <td>Sala <?= $item['sala_nome'] ?></td>
+            <td>Bloco <?= 
+           $item['bloco'] == 1 ? 'A' : 
+           ($item['bloco'] == 2 ? 'B' : 'C') 
+           ?>
+          </td>
+          
+
+          <!--- arrumar botões!! ⬇⬇  -->
+            <td>
+              <span class="badge bg-success">Ativo</span>
+            </td>
+          </tr>
+          
+          <?php endforeach; ?>
+          
+          </tbody>
+          
+        </table>
         </div>
       </section>
       

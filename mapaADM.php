@@ -163,6 +163,14 @@ $sala = $stmt->fetch();
             Adicionar
           </button>
 
+         <!--- BOTAO VOLTAR -----> 
+           
+        <button href="Bloco.php" class="btn btn-outline-primary" onclick="window.location.href='Bloco.php'">
+           <img src="ícone-casa.png">
+          Voltar
+        </button>
+
+
         </div>
 
       </div>
@@ -233,13 +241,6 @@ $sala = $stmt->fetch();
 
     </div>
   </div>
-</div>
-
-<!----------------------------------- botão voltar ----------------------------------------------------------->
-<div class="button text-center mt-4">
-  <a href="Bloco.php">
-    <button class="btn btn-outline-primary mt-4 text-center">voltar</button>
-  </a>
 </div>
 
 </body>
