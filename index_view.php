@@ -23,12 +23,27 @@ $patrimonios_lista = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
+    
+    <!-- cria a cor de fundo gradiente da pagina principal ---->
+    <style>
+        .cabecalho-gradient{
+            background: linear-gradient(90deg, #5bb0ff, #36f2f8);
+        }
+    </style>
+
+  </head>
 
 <body>
     
     <!-----------------------------------------------   cabeçalho  ------------------------------------------------->
-    <header class="border-bottom lh-1 py-3 p-3 mb-2 bg-primary-subtle text-primary-emphasis"> 
+
+    <!-- header original (sem degradê)
+     <header class="border-bottom lh-1 py-3 p-3 mb-2 bg-primary-subtle text-primary-emphasis">
+    -->
+
+
+    <!-- este header e usado para usar a cor em gradiente  --->
+    <header class="border-bottom lh-1 py-3 p-3 mb-2 cabecalho-gradient text-white"> 
         <div class="row justify-content-center"> 
             <div class="col-12 text-center"> 
                 <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
@@ -55,9 +70,7 @@ $patrimonios_lista = $stmt->fetchAll();
     
     <!------------------------------- card com imagem da tela inicial ---------------------------------------------------------------------------->  
     <div class="card text-center ">
-        <div class="card-header ">
-         
-        </div>
+        
         <div class="logo text-center mt-1 ">
         <img src="logo-sistema.png " alt=""  style="max-width: 150px;" class="img-fluid">
         </div>

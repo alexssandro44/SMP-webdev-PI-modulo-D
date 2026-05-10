@@ -18,13 +18,22 @@ $salas = $pdo->query($sql)->fetchAll();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+   <!-- cria a cor de fundo gradiente da pagina principal ---->
+    <style>
+        .cabecalho-gradient{
+            background: linear-gradient(90deg, #5bb0ff, #36f2f8);
+        }
+    </style>
+  
 </head>
 
 <body>
 
 <!-----------------------------------------------  cabeçalho  ------------------------------------------------->
 
-<header class="border-bottom lh-1 py-3 p-3 mb-2 bg-primary-subtle text-primary-emphasis">
+<header class="border-bottom lh-1 py-3 p-3 mb-2 cabecalho-gradient text-white"> 
   <div class="row justify-content-center">
     <div class="col-12 text-center">
       <a class="blog-header-logo text-body-emphasis text-decoration-none">
@@ -99,12 +108,13 @@ $salas = $pdo->query($sql)->fetchAll();
          <img src="ícone-editar.png" style="width:16px">
          Editar
          </a>
-          <!-- BOTÃO DELETAR -->
           
-          <a href="CRUD-salas/deletar_sala.php?id=<?= $sala['id'] ?>" 
-             class="btn btn-outline-primary btn-sm">
-             <img src="ícone-deletar.png" style="width:16px"
-             onclick="return confirm('Tem certeza que deseja deletar esta sala?')">
+         <!-- BOTÃO DELETAR -->
+          
+        <a href="CRUD-salas/deletar_sala.php?id=<?= $sala['id'] ?>" 
+             class="btn btn-outline-primary btn-sm"
+             onclick="return confirm('Tem certeza de que deseja deletar esta sala?')">
+             <img src="ícone-deletar.png" style="width:16px">
             Deletar
           </a>
         </div>

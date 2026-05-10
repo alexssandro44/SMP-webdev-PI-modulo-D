@@ -16,9 +16,6 @@ $sql = "SELECT * FROM salas WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$sala_id]);
 $sala = $stmt->fetch();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -26,44 +23,51 @@ $sala = $stmt->fetch();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mapa de Patrimônios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+
+
+     <!-- cria a cor de fundo gradiente da pagina principal ---->
+    <style>
+        .cabecalho-gradient{
+            background: linear-gradient(90deg, #5bb0ff, #36f2f8);
+        }
+    </style>
+
+  </head>
 
 <body>
 
 <!------------------------------------------- cabeçalho ----------------------------------------------------------------------->
-<header>
-    <div class="row justify-content-center"> 
-        <div class="col-12 text-center mt-3"> 
-            <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
-                Mapa dos patrimônios - sala <?= $sala['nome'] ?>
-            </a>
-        </div>
-    </div> 
+
+<header class="border-bottom lh-1 py-3 p-3 mb-2 cabecalho-gradient text-white"> 
+    <div class="col-12 text-center"> 
+        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
+            Mapa dos patrimônios - sala <?= $sala['nome'] ?>
+        </a>
+    </div>
 </header>
 <!------------------------------------------------------------------------------------------------------------------>
 
 <!-------------------------------------------- container principal ---------------------------------------------------------->
-<div class="container-fluid mt-5 px-5">
+<div class="container-fluid mt-5 px-3 px-md-5">
 
-
-  <div class="row">
+  <div class="row g-4">
 
     <!------------------------------------ COLUNA DOS PCS ------------------------------------------------------------>
-    <div class="col-md-5">
+    <div class="col-12 col-lg-5">
 
-      <div class="row g-4">
+      <div class="row g-3">
 
         <!--  LOOP PARA CRIAR OS PCS  ----->
         <?php foreach($pcs as $pc): ?>
           
-          <div class="col-auto">
-            <div class="card" style="width:120px;">
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card w-100">
               <div class="card-body text-center">
-                <h5>PC <?= $pc['numero'] ?></h5>
-                <img src="ícone-pc-mapa..png" style="max-width: 70px;">
+                <h6>PC <?= $pc['numero'] ?></h6>
+                <img src="ícone-pc-mapa..png" style="max-width: 60px;">
               </div>
             </div>
           </div>
@@ -75,19 +79,19 @@ $sala = $stmt->fetch();
     </div>
 
     <!------------------------------------ COLUNA DA TABELA ---------------------------------------------------------->
-    <div class="col-md-6">
+    <div class="col-12 col-lg-7">
 
-      <div class="container tabela">
+      <div class="w-100">
          
       <!------------------------------- CABEÇALHO--------------------------------------------------->
-      <div class="container mt-4 tex">
+      <div class="mt-4">
 
-        <!-- BARRA DE ROLAGEM DA TABELA -->
-        <div class="scroll" style="max-height: 600px; overflow-y: auto;">    
+        <!-- TABELA RESPONSIVA COM SCROLL -->
+        <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">    
   
-        <table class="table table-bordered tex">
+        <table class="table table-bordered text-center table-sm">
      
-        <thead class="cabeçalho text-center">
+        <thead class="text-center">
           <tr>
             <th>PC</th>
             <th>Modelo</th>
@@ -118,22 +122,20 @@ $sala = $stmt->fetch();
           <td><?= $pc['imagem'] ?></td>
 
           <!-------------- AÇÕES  DA TABELA ------------------>
-          <td>
+          <td style="white-space: nowrap;">
             <div class="d-flex justify-content-center gap-2">
 
               <!-- BOTÃO EDITAR -->
                <a href="CRUD-mapa-patrimonio/form-editar.php?id=<?= $pc['id'] ?>&sala_id=<?= $sala_id ?>"
-
                  class="btn btn-outline-primary d-flex align-items-center gap-1">
                 <img src="ícone-editar.png" style="width:16px">
                 Editar
               </a>
 
-
               <!-- BOTÃO DELETAR -->
               <a href="CRUD-mapa-patrimonio/deletar_pc.php?id=<?= $pc['id'] ?>&sala_id=<?= $sala_id ?>"
                  class="btn btn-outline-primary d-flex align-items-center gap-1"
-                 onclick="return confirm('Tem certeza que deseja deletar este PC?')">
+                 onclick="return confirm('Tem certeza de que deseja deletar este PC?')">
                 <img src="ícone-deletar.png" style="width:16px">
                 Deletar
               </a>
@@ -151,11 +153,7 @@ $sala = $stmt->fetch();
         </div>
 
         <!---------------- BOTÕES ------------------>
-        <div class="button mt-3">
-         
-          <button class="btn btn-success">Reserva</button>
-          <button class="btn btn-warning">Manutenção</button>
-          <button class="btn btn-danger">Irregular</button>
+        <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center justify-content-md-start">
 
           <!---------------- BOTÃO MODAL ------------------>
           <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAdicionar">
@@ -164,12 +162,10 @@ $sala = $stmt->fetch();
           </button>
 
          <!--- BOTAO VOLTAR -----> 
-           
-        <button href="Bloco.php" class="btn btn-outline-primary" onclick="window.location.href='Bloco.php'">
+        <button class="btn btn-outline-primary" onclick="window.location.href='Bloco.php'">
            <img src="ícone-casa.png">
           Voltar
         </button>
-
 
         </div>
 
@@ -212,12 +208,12 @@ $sala = $stmt->fetch();
           </div>
 
           <div class="mb-2">
-            <label>Monitor</label>
+            <label>Modelo Monitor</label>
             <input type="text" name="monitor" class="form-control">
           </div>
 
           <div class="mb-2">
-            <label>Modelo Monitor</label>
+            <label>Patrimônio Monitor</label>
             <input type="text" name="modelo_monitor" class="form-control">
           </div>
 
