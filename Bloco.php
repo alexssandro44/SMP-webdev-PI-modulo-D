@@ -147,3 +147,10 @@ $salas = $pdo->query($sql)->fetchAll();
 
 </body>
 </html>
+
+
+<!----  
+git config --global user.email alex9030@gmail.com
+git config --global user.name alex9030
+
+--->
