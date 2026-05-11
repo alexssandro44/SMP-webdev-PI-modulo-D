@@ -50,12 +50,12 @@ $pc = $stmt->fetch();
   </div>
 
   <div class="mb-2">
-    <label>Monitor</label>
+    <label>Modelo Monitor</label>
     <input type="text" name="monitor" class="form-control" value="<?= $pc['monitor'] ?>">
   </div>
 
   <div class="mb-2">
-    <label>Modelo Monitor</label>
+    <label>Patrimônio Monitor</label>
     <input type="text" name="modelo_monitor" class="form-control" value="<?= $pc['modelo_monitor'] ?>">
   </div>
 
