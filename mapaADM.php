@@ -23,6 +23,7 @@ $sala = $stmt->fetch();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mapa de Patrimônios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,13 +39,14 @@ $sala = $stmt->fetch();
   </head>
 
 <body>
+  
 
 <!------------------------------------------- cabeçalho ----------------------------------------------------------------------->
 
 <header class="border-bottom lh-1 py-3 p-3 mb-2 cabecalho-gradient text-white"> 
     <div class="col-12 text-center"> 
         <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">
-            Mapa dos patrimônios - sala <?= $sala['nome'] ?>
+            <?php echo $titulo_principal_mapa ?> <?= $sala['nome'] ?>
         </a>
     </div>
 </header>
@@ -93,6 +95,9 @@ $sala = $stmt->fetch();
      
         <thead class="text-center">
           <tr>
+
+          <!----- REALIZAR A MUDANÇA PARA OS TEMPLATES ----------->
+
             <th>PC</th>
             <th>Modelo</th>
             <th>Patrimônio</th>
@@ -129,7 +134,9 @@ $sala = $stmt->fetch();
                <a href="CRUD-mapa-patrimonio/form-editar.php?id=<?= $pc['id'] ?>&sala_id=<?= $sala_id ?>"
                  class="btn btn-outline-primary d-flex align-items-center gap-1">
                 <img src="ícone-editar.png" style="width:16px">
-                Editar
+                
+                <?php echo $acao_botao_editar ?>
+
               </a>
 
               <!-- BOTÃO DELETAR -->
@@ -137,11 +144,13 @@ $sala = $stmt->fetch();
                  class="btn btn-outline-primary d-flex align-items-center gap-1"
                  onclick="return confirm('Tem certeza de que deseja deletar este PC?')">
                 <img src="ícone-deletar.png" style="width:16px">
-                Deletar
+                
+                <?php echo $acao_botao_deletar ?>
               </a>
                
             </div>
           </td>
+
 
         </tr>
 
@@ -186,6 +195,9 @@ $sala = $stmt->fetch();
         <h5 class="modal-title">Adicionar PC</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+  
+
+      <!----- REALIZAR A MUDANÇA PARA OS TEMPLATES ----------->
 
       <div class="modal-body">
         <form action="CRUD-mapa-patrimonio/adicionar_pc.php" method="POST">

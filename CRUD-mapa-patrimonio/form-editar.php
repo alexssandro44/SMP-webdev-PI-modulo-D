@@ -71,7 +71,7 @@ $pc = $stmt->fetch();
 
   <button type="submit" class="btn btn-success mt-2">Salvar</button>
 
-  <a href="../mapaADM.php?sala_id=<?= $_GET['sala_id'] ?>" class="btn btn-secondary mt-2">
+  <a href="../pagina_mapa.php?sala_id=<?= $_GET['sala_id'] ?>" class="btn btn-secondary mt-2">
   Cancelar
   </a>
  

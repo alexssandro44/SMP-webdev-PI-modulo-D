@@ -75,6 +75,7 @@ $salas = $pdo->query($sql)->fetchAll();
               <option value="1">Bloco A</option>
               <option value="2">Bloco B</option>
               <option value="3">Bloco C</option>
+              <option value="4">Bloco D</option>
             </select>
           </div>
 
@@ -119,7 +120,7 @@ $salas = $pdo->query($sql)->fetchAll();
           </a>
         </div>
 
-        <a href="mapaADM.php?sala_id=<?= $sala['id'] ?>" 
+        <a href="pagina_mapa.php?sala_id=<?= $sala['id'] ?>" 
         class="btn btn-primary btn-sm">
         Entrar
         </a>

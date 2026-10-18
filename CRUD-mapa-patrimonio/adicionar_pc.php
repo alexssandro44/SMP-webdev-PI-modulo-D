@@ -36,7 +36,7 @@ $stmt->execute([
 ]);
 
 // voltar pra página
-header("Location: ../mapaADM.php?sala_id=".$sala_id);
+header("Location: ../pagina_mapa.php?sala_id=".$sala_id);
 
 
 

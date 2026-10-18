@@ -45,6 +45,7 @@ $sala = $stmt->fetch();
   <option value="1" <?= $sala['bloco'] == 1 ? 'selected' : '' ?>>Bloco A</option>
   <option value="2" <?= $sala['bloco'] == 2 ? 'selected' : '' ?>>Bloco B</option>
   <option value="3" <?= $sala['bloco'] == 3 ? 'selected' : '' ?>>Bloco C</option>
+  <option value="4" <?= $sala['bloco'] == 4 ? 'selected' : '' ?>>Bloco D</option>
 </select>
 
   

@@ -13,7 +13,7 @@ $sql = "DELETE FROM pcs WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$id]);
 
-header("Location: ../mapaADM.php?sala_id=".$sala_id);
+header("Location: ../pagina_mapa.php?sala_id=".$sala_id);
 
 
 
