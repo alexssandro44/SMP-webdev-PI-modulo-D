@@ -27,7 +27,7 @@ $sala = $stmt->fetch();
 
 <body class="container mt-5">
 
-<h3>Editar Sala <?= $sala['id'] ?></h3>
+<h3>Editar Sala </h3>
 
 <form action="salvar_edicao_sala.php" method="POST">
 
