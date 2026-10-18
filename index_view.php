@@ -114,8 +114,9 @@ $patrimonios_lista = $stmt->fetchAll();
             <td>PC</td>
             <td>Sala <?= $item['sala_nome'] ?></td>
             <td>Bloco <?= 
-           $item['bloco'] == 1 ? 'A' : 
-           ($item['bloco'] == 2 ? 'B' : 'C') 
+           $item['bloco'] ==  1 ? 'A' : 
+           ($item['bloco'] == 2 ? 'B' :
+           ($item['bloco'] == 3 ? 'C' : 'D')) 
            ?>
           </td>
           
