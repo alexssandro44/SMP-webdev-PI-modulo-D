@@ -171,9 +171,12 @@ $sala = $stmt->fetch();
           </button>
 
          <!--- BOTAO VOLTAR -----> 
-        <button class="btn btn-outline-primary" onclick="window.location.href='Bloco.php'">
-           <img src="ícone-casa.png">
-          Voltar
+        <button class="btn btn-outline-primary" 
+          
+        onclick="window.location.href='Bloco.php?bloco=<?= (int) $sala['bloco'] ?>'">
+
+        <img src="ícone-casa.png">
+        Voltar
         </button>
 
         </div>

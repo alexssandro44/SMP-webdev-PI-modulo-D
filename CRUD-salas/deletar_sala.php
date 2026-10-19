@@ -8,13 +8,18 @@ $pdo = new PDO($dsn);
 
 $id = $_GET['id'];
 
+
+// faz a verigicação da existencia da sala a ser deletada
+$bloco = isset($_GET['bloco']) ? (int) $_GET['bloco'] : 1;
+
+
 $sql = "DELETE FROM salas WHERE id = ?";
 
 $stmt = $pdo->prepare($sql);
 
 $stmt ->execute([$id]);
 
-header("Location: ../Bloco.php");
+header("Location: ../Bloco.php?bloco=" . $bloco);
 
 
 ?>

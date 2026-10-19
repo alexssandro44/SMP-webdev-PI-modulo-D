@@ -7,7 +7,9 @@ $pdo = new PDO($dsn);
 
 // dados do formulário
 $nome = $_POST['nome'];
-$bloco = $_POST['bloco'];
+
+// realiza a verificação da existencia da sala no bloco
+$bloco = isset($_POST['bloco']) ? (int) $_POST['bloco'] : 1;
 
 
 $sql = "INSERT INTO salas
@@ -23,7 +25,8 @@ $stmt->execute([
 ]);
 
 // voltar pra página
-header("Location: ../Bloco.php");
+header("Location: ../Bloco.php?bloco=" . $bloco);
+exit;
 
 
 ?>

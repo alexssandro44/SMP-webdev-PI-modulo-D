@@ -8,6 +8,13 @@ $id = $_POST['id'];
 $nome = $_POST['nome'];
 $bloco = $_POST['bloco'];
 
+// faz a verificação se o formulário enviou o número do bloco de origem  
+
+$bloco_atual = isset($_POST['bloco_atual'])
+    ? (int) $_POST['bloco_atual']
+    : 1;
+
+
 // update
 $sql = "UPDATE salas SET
     nome = :nome,
@@ -25,4 +32,5 @@ $stmt->execute([
 ]);
 
 // voltar
-header("Location: ../Bloco.php");
+header("Location: ../Bloco.php?bloco=" . (int) $bloco);
+exit;

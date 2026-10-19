@@ -7,6 +7,8 @@ $pdo = new PDO($dsn);
 // pegar ID
 $id = $_GET['id'];
 
+$bloco_atual = isset($_GET['bloco']) ? (int) $_GET['bloco'] : 1;
+
 // buscar dados do PC
 $sql = "SELECT * FROM salas WHERE id = ?";
 $stmt = $pdo->prepare($sql);
@@ -33,10 +35,14 @@ $sala = $stmt->fetch();
 
 
 <input type="hidden" name="id" value="<?= $sala['id'] ?>">
+
   <div class="mb-2">
     <label>Número</label>
     <input type="text" name="nome" class="form-control" value="<?= $sala['nome'] ?>">
-  </div>
+  
+  <input type="hidden" name="bloco_atual" value="<?= $bloco_atual ?>">
+  
+</div>
 
   <label>Bloco</label>
   <div class="mb-2">
@@ -52,7 +58,7 @@ $sala = $stmt->fetch();
    </div>
 
   <button type="submit" class="btn btn-success mt-2">Salvar</button>
-  <a href="../Bloco.php" class="btn btn-secondary mt-2">Cancelar</a>
+  <a href="../Bloco.php?bloco=<?= $bloco_atual ?>" class="btn btn-secondary mt-2">Cancelar</a>
 
 </form>
 

@@ -57,13 +57,23 @@ $patrimonios_lista = $stmt->fetchAll();
     <!-- nav serve para agrupar os principais links -->
     <!-------------------------------------------------  MENU DE NAVEGAÇÃO  ------------------------------------------------->    
     
-    <nav class="nav nav-underline justify-content-center "> 
-    <a class="nav-item nav-link link-body-emphasis mx-3 " href="Bloco.php"> <?php echo $bloco_a ?></a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-B.php"><?php echo $bloco_b?></a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-C.php"><?php echo $bloco_c?></a> 
-    <a class="nav-item nav-link link-body-emphasis mx-3" href="Bloco-D.php"><?php echo $bloco_d?></a> 
+    
+     <nav class="nav nav-underline justify-content-center">
+         <a class="nav-item nav-link link-body-emphasis mx-3"
+            href="Bloco.php?bloco=1">Bloco A</a>
      
-    </nav>
+         <a class="nav-item nav-link link-body-emphasis mx-3"
+            href="Bloco.php?bloco=2">Bloco B</a>
+     
+         <a class="nav-item nav-link link-body-emphasis mx-3"
+            href="Bloco.php?bloco=3">Bloco C</a>
+     
+         <a class="nav-item nav-link link-body-emphasis mx-3"
+            href="Bloco.php?bloco=4">Bloco D</a>
+     </nav>
+
+
+
     <!---------------------------------------------------------------------------------------------------------------------->
     
 

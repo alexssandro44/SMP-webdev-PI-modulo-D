@@ -1,11 +1,31 @@
 <!--- conexao com o banco  ---->
 <?php
+
 $dsn = "sqlite:database.db";
 $pdo = new PDO($dsn);
 
-$sql = "SELECT * FROM salas";
-$salas = $pdo->query($sql)->fetchAll();
+// Identifica o bloco selecionado pela URL
+$bloco = isset($_GET['bloco']) ? (int) $_GET['bloco'] : 1;
+
+// Busca somente as salas do bloco selecionado
+$sql = "SELECT * FROM salas WHERE bloco = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$bloco]);
+$salas = $stmt->fetchAll();
+
+// Define a letra do bloco para o cabeçalho
+$letras = [
+    1 => 'A',
+    2 => 'B',
+    3 => 'C',
+    4 => 'D'
+];
+
+$letra_bloco = $letras[$bloco] ?? 'A';
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +57,7 @@ $salas = $pdo->query($sql)->fetchAll();
   <div class="row justify-content-center">
     <div class="col-12 text-center">
       <a class="blog-header-logo text-body-emphasis text-decoration-none">
-        Salas - Bloco A
+        Salas - Bloco <?= $letra_bloco ?>
       </a>
     </div>
   </div>
@@ -64,19 +84,14 @@ $salas = $pdo->query($sql)->fetchAll();
       <div class="modal-body">
         <form action="CRUD-salas/adicionar_sala.php" method="POST">
 
-          <div class="mb-2">
+        <!-- cadastra altomaticamente a sala no bloco atual ---->
+         
+        <input type="hidden" name="bloco" value="<?= $bloco ?>">
+        
+        
+        <div class="mb-2">
             <label>Número</label>
             <input type="text" name="nome" class="form-control">
-          </div>
-
-          <div class="mb-2">
-            <label>Bloco</label>
-            <select name="bloco" class="form-control">
-              <option value="1">Bloco A</option>
-              <option value="2">Bloco B</option>
-              <option value="3">Bloco C</option>
-              <option value="4">Bloco D</option>
-            </select>
           </div>
 
           <button type="submit" class="btn btn-success mt-2">
@@ -104,7 +119,7 @@ $salas = $pdo->query($sql)->fetchAll();
         <div class="card-body">
           <h5 class="card-title">Sala <?= $sala['nome'] ?></h5>
 
-          <a href="CRUD-salas/form_editar_sala.php?id=<?= $sala['id'] ?>" 
+          <a href="CRUD-salas/form_editar_sala.php?id=<?= $sala['id'] ?>&bloco=<?= $bloco ?>" 
          class="btn btn-outline-primary btn-sm">
          <img src="ícone-editar.png" style="width:16px">
          Editar
@@ -112,15 +127,15 @@ $salas = $pdo->query($sql)->fetchAll();
           
          <!-- BOTÃO DELETAR -->
           
-        <a href="CRUD-salas/deletar_sala.php?id=<?= $sala['id'] ?>" 
+        <a href="CRUD-salas/deletar_sala.php?id=<?= $sala['id'] ?>&bloco=<?= $bloco ?>"
              class="btn btn-outline-primary btn-sm"
              onclick="return confirm('Tem certeza de que deseja deletar esta sala?')">
              <img src="ícone-deletar.png" style="width:16px">
             Deletar
           </a>
         </div>
-
-        <a href="pagina_mapa.php?sala_id=<?= $sala['id'] ?>" 
+                                                         <!---- ajuste aqui----->
+        <a href="pagina_mapa.php?sala_id=<?= $sala['id'] ?>&bloco=<?= $bloco ?>"
         class="btn btn-primary btn-sm">
         Entrar
         </a>
@@ -128,8 +143,6 @@ $salas = $pdo->query($sql)->fetchAll();
       </div>
     </div>
  
-    
-
 
   <?php endforeach; ?>
 
