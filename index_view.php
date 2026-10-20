@@ -4,15 +4,41 @@
 $dsn = "sqlite:database.db";
 $pdo = new PDO($dsn);
 
+// Recebe o texto digitado
+$pesquisa = trim($_GET['pesquisa'] ?? '');
+
 $sql = "
 SELECT pcs.*, salas.nome AS sala_nome, salas.bloco
 FROM pcs
 INNER JOIN salas ON pcs.sala_id = salas.id
+WHERE CAST(pcs.numero AS TEXT) LIKE :numero
+   OR CAST(pcs.patrimonio AS TEXT) LIKE :patrimonio
+   OR CAST(salas.nome AS TEXT) LIKE :sala
+   OR ('Sala ' || CAST(salas.nome AS TEXT)) LIKE :sala_completa
+   OR CAST(salas.bloco AS TEXT) LIKE :bloco_numero
+   OR ('Bloco ' || CASE salas.bloco
+       WHEN 1 THEN 'A'
+       WHEN 2 THEN 'B'
+       WHEN 3 THEN 'C'
+       WHEN 4 THEN 'D'
+       ELSE CAST(salas.bloco AS TEXT)
+   END) LIKE :bloco_nome
 ORDER BY salas.nome
 ";
 
-$stmt = $pdo->query($sql);
-$patrimonios_lista = $stmt->fetchAll();
+$termo = '%' . $pesquisa . '%';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+    ':numero' => $termo,
+    ':patrimonio' => $termo,
+    ':sala' => $termo,
+    ':sala_completa' => $termo,
+    ':bloco_numero' => $termo,
+    ':bloco_nome' => $termo
+]);
+
+$patrimonios_lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -76,6 +102,11 @@ $patrimonios_lista = $stmt->fetchAll();
 
     <!---------------------------------------------------------------------------------------------------------------------->
     
+    <!--- botao de chamados  ---->
+
+
+      
+
 
     
     <!------------------------------- card com imagem da tela inicial ---------------------------------------------------------------------------->  
@@ -104,11 +135,36 @@ $patrimonios_lista = $stmt->fetchAll();
         <h3 class="mb-4 text-center"> <?php echo $patrimonios ?></h3>
       
         <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
-          <table class="table table-striped table-hover">
+          
+        <!--- botão de pesquisa  ---->
+
+        <!---- w-50 cria o tamanho da barra, e mx-auto deixa centralizado --->
+
+       <form method="GET" action="" class="mb-3 w-50 mx-auto ">
+    <div class="input-group ">
+        <input
+            type="text"
+            name="pesquisa"
+            class="form-control shadow-none text-center "
+            placeholder="Pesquisar patrimônio..."
+            value="<?= htmlspecialchars($_GET['pesquisa'] ?? '') ?>"
+        >
+
+        <button type="submit" class="btn btn-primary shadow-none">
+            <i class="bi bi-search"></i> Pesquisar
+        </button>
+    </div>
+</form>
+   
+
+        <!------->
+        
+        <table class="table table-striped table-hover">
             <thead class="table-light">
               <tr>
-                <th>#</th>
+                <th>Nº</th>
                 <th>Item</th>
+                <th>patrimônio</th>
                 <th>Local</th>
                 <th>Bloco</th>
                 <th>Status</th>
@@ -117,28 +173,36 @@ $patrimonios_lista = $stmt->fetchAll();
             
             <tbody>
 
-          <?php foreach($patrimonios_lista as $item): ?>
-          
-          <tr>
-            <td><?= $item['numero'] ?></td>
-            <td>PC</td>
-            <td>Sala <?= $item['sala_nome'] ?></td>
-            <td>Bloco <?= 
-           $item['bloco'] ==  1 ? 'A' : 
-           ($item['bloco'] == 2 ? 'B' :
-           ($item['bloco'] == 3 ? 'C' : 'D')) 
-           ?>
-          </td>
-          
+          <!----->
 
-          <!--- arrumar botões!! ⬇⬇  -->
-            <td>
-              <span class="badge bg-success">Ativo</span>
-            </td>
-          </tr>
+          <?php foreach ($patrimonios_lista as $item): ?>
+
+<tr>
+    <td><?= htmlspecialchars($item['numero'] ?? '') ?></td>
+
+    <td>PC</td>
+
+    <td><?= htmlspecialchars($item['patrimonio'] ?? '') ?></td>
+
+    <td>Sala <?= htmlspecialchars($item['sala_nome'] ?? '') ?></td>
+
+    <td>
+        Bloco
+        <?= $item['bloco'] == 1 ? 'A' :
+            ($item['bloco'] == 2 ? 'B' :
+            ($item['bloco'] == 3 ? 'C' : 'D')) ?>
+    </td>
+
+    <td>
+        <span class="badge bg-success">Ativo</span>
+    </td>
+</tr>
+
+<?php endforeach; ?>
           
-          <?php endforeach; ?>
-          
+        <!------>
+
+
           </tbody>
           
         </table>

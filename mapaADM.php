@@ -172,8 +172,10 @@ $sala = $stmt->fetch();
 
          <!--- BOTAO VOLTAR -----> 
         <button class="btn btn-outline-primary" 
-          
+           
         onclick="window.location.href='Bloco.php?bloco=<?= (int) $sala['bloco'] ?>'">
+      
+         <!-- onclick volta para o bloco atual  --->
 
         <img src="ícone-casa.png">
         Voltar
